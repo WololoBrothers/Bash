@@ -1,0 +1,86 @@
+Logs for backups - test and add today
+
+JAZMIN
+
+# lwmoodle.com.ar
+
+cd /home/dbrothers/backups_all/lwmoodle.com.ar/DB_backups
+
+du -sch * >> /home/dbrothers/backups_all/lwmoodle.com.ar/status
+
+cd /home/dbrothers/backups_all/lwmoodle.com.ar/DT_backups
+
+du -sch * >> /home/dbrothers/backups_all/lwmoodle.com.ar/status
+
+cd /home/dbrothers/backups_all/lwmoodle.com.ar/MO_backups
+
+du -sch * >> /home/dbrothers/backups_all/lwmoodle.com.ar/status
+
+
+# tuplataforma.com
+
+cd /home/dbrothers/backups_all/tuplataforma.com/DB_backups
+
+du -sch * >> /home/dbrothers/backups_all/tuplataforma.com/status
+
+cd /home/dbrothers/backups_all/tuplataforma.com/DT_backups
+
+du -sch * >> /home/dbrothers/backups_all/tuplataforma.com/status
+
+cd /home/dbrothers/backups_all/tuplataforma.com/MO_backups
+
+du -sch * >> /home/dbrothers/backups_all/tuplataforma.com/status
+
+
+
+ROSAL
+
+# campus.colegiobuenosaires.edu.ar
+
+cd /home/dbrothers/backups_all/campus.colegiobuenosaires.edu.ar/DB_backups
+
+du -sch * >> /home/dbrothers/backups_all/campus.colegiobuenosaires.edu.ar/status
+
+cd /home/dbrothers/backups_all/campus.colegiobuenosaires.edu.ar/DT_backups
+
+du -sch * >> /home/dbrothers/backups_all/campus.colegiobuenosaires.edu.ar/status
+
+cd /home/dbrothers/backups_all/campus.colegiobuenosaires.edu.ar/MO_backups
+
+du -sch * >> /home/dbrothers/backups_all/campus.colegiobuenosaires.edu.ar/status
+
+
+
+GERBERA
+
+# campus.aexalevi.org.ar
+
+cd /home/dbrothers/backups_all/campus.aexalevi.org.ar/DB_backups
+
+du -sch * >> /home/dbrothers/backups_all/campus.aexalevi.org.ar/status
+
+cd /home/dbrothers/backups_all/campus.aexalevi.org.ar/DT_backups
+
+du -sch * >> /home/dbrothers/backups_all/campus.aexalevi.org.ar/status
+
+cd /home/dbrothers/backups_all/campus.aexalevi.org.ar/MO_backups
+
+du -sch * >> /home/dbrothers/backups_all/campus.aexalevi.org.ar/status
+
+
+
+LIRIO
+
+# aulavirtual.cui.edu.ar
+
+cd /home/dbrothers/backups_all/aulavirtual.cui.edu.ar/DB_backups
+
+du -sch * >> /home/dbrothers/backups_all/aulavirtual.cui.edu.ar/status
+
+cd /home/dbrothers/backups_all/aulavirtual.cui.edu.ar/DT_backups
+
+du -sch * >> /home/dbrothers/backups_all/aulavirtual.cui.edu.ar/status
+
+cd /home/dbrothers/backups_all/aulavirtual.cui.edu.ar/MO_backups
+
+du -sch * >> /home/dbrothers/backups_all/aulavirtual.cui.edu.ar/status
