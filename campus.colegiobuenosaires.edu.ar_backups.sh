@@ -11,6 +11,10 @@ backup_name_DB="/home/dbrothers/backups_all/campus.colegiobuenosaires.edu.ar/DB_
 backup_name_DT="/home/dbrothers/backups_all/campus.colegiobuenosaires.edu.ar/DT_backups/DT_backup_$now.tar.gz"
 backup_name_MO="/home/dbrothers/backups_all/campus.colegiobuenosaires.edu.ar/MO_backups/MO_backup_$now.tar.gz"
 
+CBA_EDU="/home/dbrothers/backups_all/colegiobuenosaires.edu.ar/colegiobuenosaires.edu.ar_$now.tar.gz"
+CBA_COM="/home/dbrothers/backups_all/colegiobuenosaires.com/colegiobuenosaires.com_$now.tar.gz"
+CBA_WWW="/home/dbrothers/backups_all/www.colegiobuenosaires.com/www.colegiobuenosaires.com_$now.tar.gz"
+
 # 1 - DB
 # pasando parametros para mysqldump
 
@@ -58,3 +62,14 @@ cd /var/www/campus.colegiobuenosaires.edu.ar/
 tar -zcf $backup_name_MO public_html
 
 echo "moodle folder backup done."
+
+# 4 - colegiobuenosaires.com, www.colegiobuenosaires.com, colegiobuenosaires.edu.ar
+
+rm -rf /home/dbrothers/backups_all/colegiobuenosaires.edu.ar/*
+rm -rf /home/dbrothers/backups_all/colegiobuenosaires.com/*
+rm -rf /home/dbrothers/backups_all/www.colegiobuenosaires.com/*
+
+cd /var/www/
+tar -zcf $CBA_EDU colegiobuenosaires.edu.ar
+tar -zcf $CBA_COM colegiobuenosaires.com
+tar -zcf $CBA_WWW www.colegiobuenosaires.com
