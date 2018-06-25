@@ -5,6 +5,8 @@
 
 now=$(date +"%d_%m_%Y")
 
+echo $now >> /home/dbrothers/backups_log
+
 # database, moodledata, moodle
 
 backup_name_DB="/home/dbrothers/backups_all/campus.colegiobuenosaires.edu.ar/DB_backups/DB_backup_$now.sql"
@@ -21,17 +23,17 @@ CBA_WWW="/home/dbrothers/backups_all/www.colegiobuenosaires.com/www.colegiobueno
 db_host="localhost"
 db_name="colbas_moodle"
 db_user="colbas_moodle"
-db_pass="NOT_THE_PASSWORD"
+db_pass="i3oF3WaR"
 
 # crear dump DB. Password harcodeado!
 
-mysqldump -u $db_user -p"NOT_THE_PASSWORD" -C -Q -e --create-options $db_name > $backup_name_DB
+mysqldump -u $db_user -p"i3oF3WaR" -C -Q -e --create-options $db_name > $backup_name_DB
 
 # eliminar los demas files
 
 find /home/dbrothers/backups_all/campus.colegiobuenosaires.edu.ar/DB_backups/ -type f ! -name DB_backup_$now.sql ! -name DB_backups -delete
 
-echo "DB backup done."
+echo "DB backup done." >> /home/dbrothers/backups_log
 
 # 2 - moodledata
 
@@ -46,7 +48,7 @@ cd /var/www/campus.colegiobuenosaires.edu.ar/
 
 tar -zcf $backup_name_DT moodledata
 
-echo "moodledata folder backup done."
+echo "moodledata folder backup done." >> /home/dbrothers/backups_log
 
 # 3 - moodle
 
@@ -61,7 +63,7 @@ cd /var/www/campus.colegiobuenosaires.edu.ar/
 
 tar -zcf $backup_name_MO public_html
 
-echo "moodle folder backup done."
+echo "moodle folder backup done." >> /home/dbrothers/backups_log
 
 # 4 - colegiobuenosaires.com, www.colegiobuenosaires.com, colegiobuenosaires.edu.ar
 
@@ -73,3 +75,5 @@ cd /var/www/
 tar -zcf $CBA_EDU colegiobuenosaires.edu.ar
 tar -zcf $CBA_COM colegiobuenosaires.com
 tar -zcf $CBA_WWW www.colegiobuenosaires.com
+
+echo "site backups done." >> /home/dbrothers/backups_log
