@@ -5,6 +5,8 @@
 
 now=$(date +"%d_%m_%Y")
 
+echo $now >> /home/backups_all/status
+
 # database, moodledata, moodle
 
 backup_name_DB="/home/backups_all/campus.hendel.com/DB_backups/DB_backup_$now.sql"
@@ -27,7 +29,7 @@ mysqldump -u $db_user -p"NOT_THE_PASSWORD" -C -Q -e --create-options $db_name > 
 
 find /home/backups_all/campus.hendel.com/DB_backups/ -type f ! -name DB_backup_$now.sql ! -name DB_backups -delete
 
-echo "DB backup done." >> /home/dbrothers/backups_all/status
+echo "DB backup done." >> /home/backups_all/status
 
 # 2 - moodledata
 
@@ -42,7 +44,7 @@ cd /var/www/campus.hendel.com/
 
 tar -zcf $backup_name_DT moodledata
 
-echo "moodledata folder backup done." >> /home/dbrothers/backups_all/status
+echo "moodledata folder backup done." >> /home/backups_all/status
 
 # 3 - moodle
 
@@ -57,6 +59,6 @@ cd /var/www/campus.hendel.com/
 
 tar -zcf $backup_name_MO public_html
 
-echo "moodle folder backup done." >> /home/dbrothers/backups_all/status
+echo "moodle folder backup done." >> /home/backups_all/status
 
-df -h > /home/dbrothers/backups_all/status
+df -h >> /home/backups_all/status
