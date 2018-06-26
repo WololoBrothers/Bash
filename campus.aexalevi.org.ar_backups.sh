@@ -5,6 +5,8 @@
 
 now=$(date +"%d_%m_%Y")
 
+echo $now >> /home/dbrothers/backups_all/status
+
 # database, moodledata, moodle
 
 backup_name_DB="/home/dbrothers/backups_all/campus.aexalevi.org.ar/DB_backups/DB_backup_$now.sql"
