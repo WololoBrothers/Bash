@@ -5,6 +5,8 @@
 
 now=$(date +"%d_%m_%Y")
 
+echo $now >> /home/dbrothers/backups_all/status_lwmoodle
+
 # database, moodledata, moodle
 
 backup_name_DB="/home/dbrothers/backups_all/lwmoodle.com.ar/DB_backups/DB_backup_$now.sql"
@@ -27,7 +29,7 @@ mysqldump -u $db_user -p"NOT_THE_PASSWORD" -C -Q -e --create-options $db_name > 
 
 find /home/dbrothers/backups_all/lwmoodle.com.ar/DB_backups/ -type f ! -name DB_backup_$now.sql ! -name DB_backups -delete
 
-echo "DB backup done."
+echo "DB backup done." >> /home/dbrothers/backups_all/status_lwmoodle
 
 # 2 - moodledata
 
@@ -42,7 +44,7 @@ cd /var/www/lwmoodle.com.ar/
 
 tar -zcf $backup_name_DT moodledata
 
-echo "moodledata folder backup done."
+echo "moodledata folder backup done." >> /home/dbrothers/backups_all/status_lwmoodle
 
 # 3 - moodle
 
@@ -57,4 +59,4 @@ cd /var/www/lwmoodle.com.ar/
 
 tar -zcf $backup_name_MO public_html
 
-echo "moodle folder backup done."
+echo "moodle folder backup done." >> /home/dbrothers/backups_all/status_lwmoodle
