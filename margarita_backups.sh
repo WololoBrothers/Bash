@@ -5,6 +5,8 @@
 
 now=$(date +"%d_%m_%Y")
 
+echo $now >> /home/dbrothers/backups_all/status
+
 # database, moodledata, moodle
 
 backup_MO_microsoft="/home/dbrothers/backups_all/microsoft.net-learning.com.ar/moodle_$now.tar.gz"
@@ -37,7 +39,7 @@ rm -rf /home/dbrothers/backups_all/net-learning.com.ar/*
 
 	tar -zcf $backup_MO_microsoft public_html
 
-	echo "$now microsoft.net-learning.com.ar - public_html backup done." >> /home/dbrothers/backups_all/info_backups
+	echo "$now microsoft.net-learning.com.ar - public_html backup done." >> /home/dbrothers/backups_all/status
 
 	# 1.2 - moodledata para microsoft.net-learning.com.ar
 
@@ -48,7 +50,7 @@ rm -rf /home/dbrothers/backups_all/net-learning.com.ar/*
 
 	tar -zcf $backup_DT_microsoft moodledata
 
-	echo "$now  microsoft.net-learning.com.ar - moodledata backup done." >> /home/dbrothers/backups_all/info_backups
+	echo "$now  microsoft.net-learning.com.ar - moodledata backup done." >> /home/dbrothers/backups_all/status
 
 	# 1.3 - DB para microsoft.net-learning.com.ar
 
@@ -70,7 +72,7 @@ rm -rf /home/dbrothers/backups_all/net-learning.com.ar/*
 
 	tar -zcf $backup_MO_mobile public_html
 
-	echo "$now mobile.net-learning.com.ar - public_html backup done." >> /home/dbrothers/backups_all/info_backups
+	echo "$now mobile.net-learning.com.ar - public_html backup done." >> /home/dbrothers/backups_all/status
 
 	# 2.2 - moodledata para mobile.net-learning.com.ar
 
@@ -81,7 +83,7 @@ rm -rf /home/dbrothers/backups_all/net-learning.com.ar/*
 
 	tar -zcf $backup_DT_mobile moodledata
 
-	echo "$now  mobile.net-learning.com.ar - moodledata backup done." >> /home/dbrothers/backups_all/info_backups
+	echo "$now  mobile.net-learning.com.ar - moodledata backup done." >> /home/dbrothers/backups_all/status
 
 	# 2.3 - DB para mobile.net-learning.com.ar
 
@@ -103,7 +105,7 @@ rm -rf /home/dbrothers/backups_all/net-learning.com.ar/*
 
 	tar -zcf $backup_staging staging.net-lerning.com.ar
 
-	echo "$now staging.net-learning.com.ar backup done." >> /home/dbrothers/backups_all/info_backups
+	echo "$now staging.net-learning.com.ar backup done." >> /home/dbrothers/backups_all/status
 
 	# 4 - net-learning.com.ar
 
@@ -114,8 +116,8 @@ rm -rf /home/dbrothers/backups_all/net-learning.com.ar/*
 
 	tar -zcf $backup_NL net-learning.com.ar
 
-	echo "$now net-learning.com.ar backup done." >> /home/dbrothers/backups_all/info_backups
+	echo "$now net-learning.com.ar backup done." >> /home/dbrothers/backups_all/status
 
 
-df -h >> /home/dbrothers/backups_all/info_backups
+df -h >> /home/dbrothers/backups_all/status
 
