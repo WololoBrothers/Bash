@@ -5,7 +5,7 @@
 
 now=$(date +"%d_%m_%Y")
 
-echo $now >> /home/dbrothers/backups_log
+echo $now >> /home/dbrothers/backups_all/status
 
 # database, moodledata, moodle
 
@@ -33,7 +33,7 @@ mysqldump -u $db_user -p"i3oF3WaR" -C -Q -e --create-options $db_name > $backup_
 
 find /home/dbrothers/backups_all/campus.colegiobuenosaires.edu.ar/DB_backups/ -type f ! -name DB_backup_$now.sql ! -name DB_backups -delete
 
-echo "DB backup done." >> /home/dbrothers/backups_log
+echo "DB backup done." >> /home/dbrothers/backups_all/status
 
 # 2 - moodledata
 
@@ -48,7 +48,7 @@ cd /var/www/campus.colegiobuenosaires.edu.ar/
 
 tar -zcf $backup_name_DT moodledata
 
-echo "moodledata folder backup done." >> /home/dbrothers/backups_log
+echo "moodledata folder backup done." >> /home/dbrothers/backups_all/status
 
 # 3 - moodle
 
@@ -63,7 +63,7 @@ cd /var/www/campus.colegiobuenosaires.edu.ar/
 
 tar -zcf $backup_name_MO public_html
 
-echo "moodle folder backup done." >> /home/dbrothers/backups_log
+echo "moodle folder backup done." >> /home/dbrothers/backups_all/status
 
 # 4 - colegiobuenosaires.com, www.colegiobuenosaires.com, colegiobuenosaires.edu.ar
 
@@ -76,4 +76,4 @@ tar -zcf $CBA_EDU colegiobuenosaires.edu.ar
 tar -zcf $CBA_COM colegiobuenosaires.com
 tar -zcf $CBA_WWW www.colegiobuenosaires.com
 
-echo "site backups done." >> /home/dbrothers/backups_log
+echo "site backups done." >> /home/dbrothers/backups_all/status
