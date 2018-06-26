@@ -5,6 +5,8 @@
 
 now=$(date +"%d_%m_%Y")
 
+echo $now >> /home/dbrothers/backups_all/status
+
 # database, moodledata, moodle
 
 backup_name_DB="/home/dbrothers/backups_all/moodlenet.com.ar/DB_backups/DB_backup_$now.sql"
@@ -59,4 +61,4 @@ tar -zcf $backup_name_MO public_html
 
 echo "moodle folder backup done." >> /home/dbrothers/backups_all/status
 
-df -h > /home/dbrothers/backups_all/status
+df -h >> /home/dbrothers/backups_all/status  
