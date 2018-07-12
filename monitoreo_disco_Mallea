@@ -1,0 +1,18 @@
+# la primera línea debe ajustarse, porque no todos los discos se llaman igual
+
+df_output="$(df -h | grep -n '/dev/vda1')"
+percentage="$(echo $df_output | grep -oh '[0-9]*\%')"
+taken="$(echo $percentage | grep -oh '[0-9]*')"
+
+# aca se compara el % de ocupacion contra 80. Si es mayor a 80, se envia el correo.
+
+if [ $taken -gt 80 ]
+then
+curl -s --user 'api:key-f8c8250981272c9f85afbb0625ce6338' \
+    https://api.mailgun.net/v3/mailgun.fundacionmallea.org.ar/messages \
+    -F from='Excited User <mailgun@mailgun.fundacionmallea.org.ar>' \
+    -F to=test@mailgun.fundacionmallea.org.ar \
+    -F to=alvaro@wololo.guru \
+    -F subject=$percentage' de ocupación en el disco' \
+    -F text='Tenemos '$percentage' ocupado. Se debe considerar borrar archivos viejos o innecesarios, o ampliar el tamaño del disco.'
+fi
